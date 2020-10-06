@@ -106,9 +106,6 @@ export default {
   box-sizing: border-box;
   gap: 5em;
   .user-profile__sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     .user-profile__user-panel {
         display: flex;
         flex-direction: column;
@@ -117,7 +114,7 @@ export default {
         background-color: #fff;
         border-radius: 5px ;
         border: solid 1px #DFE3E8;
-        margin-bottom: auto;
+        margin-bottom: 0;
         h1 {
           margin: 0;
         }
