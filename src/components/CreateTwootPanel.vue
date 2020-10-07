@@ -74,6 +74,7 @@ export default {
     textarea {
         border: 1px solid #DFE3E8;
         border-radius: 5px;
+        outline: none;
 
     }
     .create-twoot-panel-submit {
@@ -88,6 +89,7 @@ export default {
             margin: auto 0;
             border-radius: 5px;
             border: none;
+            outline: none;
             background-color: #FBFE37;
             color: black;
             font-weight: bold;

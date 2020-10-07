@@ -1,14 +1,14 @@
 export const users = [
     {
       "id": 1,
-      "username": "_MitchellRomney",
-      "firstName": "Mitchell",
-      "lastName": "Romney",
-      "email": "mitchellromney@theearthissquare.com",
+      "username": "_YengPingCheng",
+      "firstName": "YenPing",
+      "lastName": "Cheng",
+      "email": "peter2mary@gmail.com",
       "isAdmin": true,
       "twoots": [
         { "id": 1, "content": "Twotter is Amazing!" },
-        { "id": 2, "content": "Don't forget to subscriber to The Earth is Square!" }
+        { "id": 2, "content": "Don't forget to subscriber to me!" }
       ]
     },
     {
