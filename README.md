@@ -1,4 +1,4 @@
-# vue-cli
+# vue-cli3
 
 ## Project setup
 ```
@@ -24,4 +24,4 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### project Demo
-https://twooter-project.herokuapp.com/user/2
+https://twooter-project.herokuapp.com
