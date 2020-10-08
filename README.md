@@ -1,4 +1,4 @@
-# vue-cli4.5.7 x vue3
+# Vue3
 
 ## Project setup
 ```
