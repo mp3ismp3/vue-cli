@@ -1,12 +1,19 @@
-
-import { createStore } from 'vuex';
-import { UserModule } from "./User";
+import {
+  createStore
+} from 'vuex';
+import {
+  MessageModule
+} from './Message';
+import {
+  UserModule
+} from "./User";
 
 export default createStore({
   state: {},
   mutations: {},
   actions: {},
   modules: {
-    User: UserModule
+    User: UserModule,
+    Message: MessageModule,
   }
 })

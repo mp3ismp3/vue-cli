@@ -1,14 +1,21 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router';
 import Home from '../views/Home.vue';
 import UserProfile from '../views/UserProfile.vue';
 import Admin from '../views/Admin.vue';
-import store from '../store';
-import { users } from '../assets/users';
-const routes = [
-  {
+import About from '../views/About.vue';
+import Contact from '../views/Contact.vue';
+const routes = [{
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
   },
   {
     path: '/user/:userId',
@@ -22,26 +29,21 @@ const routes = [
     meta: {
       requiresAdmin: true
     }
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
   }
 ]
+
+
 
 const router = createRouter({
   history: createWebHistory(),
   routes
 })
 
-router.beforeEach(async (to, from, next)=>{
-  const user = store.state.User.user;
 
-  if (!user) {
-    await store.dispatch('User/setUser', users[0]);
-  }
-
-  const isAdmin = false;
-  const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
-
-  if (requiresAdmin && !isAdmin) next({ name: 'Home'});
-  else next();
-})
 
 export default router

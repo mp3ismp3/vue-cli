@@ -1,34 +1,64 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">
-        <div class="navigation__logo">
-        twooter
+    <PhoneNav class="phone_nav" />
+    <div class="nav" :class="{ shrink: showNav }">
+      <nav class="nav1">
+        <div class="left">
+          <router-link to="/">SHOP</router-link>
         </div>
-      </router-link>
-
-      <div class="navigation__user" v-if="user">
-        {{ user.username }}
-      </div>
-    </nav>
-    <router-view/>
+        <div class="mid">
+          <router-link to="/">PINGPING</router-link>
+        </div>
+        <div class="right">
+          <router-link to="/about">ABOUT</router-link>
+          <router-link to="/contact">CONTACT</router-link>
+        </div>
+      </nav>
+      <nav class="nav2">
+        <div class="botton" @click="showNav = !showNav">
+          <img src="/img/arrow.svg" width="50" height="50" />
+        </div>
+      </nav>
+      <router-view></router-view>
+    </div>
+    <!-- <transition name="route" mode="out-in">
+        <component :is="slotProps.Component"></component>
+      </transition> -->
   </div>
 </template>
 
 <script>
-import { useStore } from 'vuex';
-import { computed } from 'vue';
+import PhoneNav from "./components/PhoneNav";
+// import { useStore } from "vuex";
+import { reactive, ref, watch, computed } from "vue";
+import { useRoute } from "vue-router";
 export default {
-  name: 'App',
+  components: { PhoneNav },
+  name: "App",
   setup() {
-    const store = useStore();
-    const user = computed(() => store.state.User.user);
+    const route = useRoute();
+    const path = computed(() => route.fullPath);
+    // const store = useStore();
+    // const user = computed(() => store.state.User.user);
+    const showNav = ref(false);
+    const state = reactive({ path });
+    console.log(path);
+    // window.route = useRoute();
+    // window.router = useRouter();
+
+    watch(
+      () => state.path,
+      () => {
+        console.log(state.path);
+        showNav.value = false;
+      }
+    );
 
     return {
-      user
-    }
-  }
-}
+      showNav,
+    };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -38,20 +68,79 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   min-height: 100vh;
-  background-color: #F3F5FA;
-
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 5%;
-    background-color: #FBFE37;
-    color: black;
-    .navigation__logo {
+  background-color: #f3f5fa;
+  .phone_nav {
+    position: relative;
+    min-height: 100vh;
+    // z-index: 1000;
+  }
+  .nav {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #f3f5fa;
+    .nav1 {
+      width: 100%;
+      justify-content: center;
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(9, 2fr);
+      height: 80px;
+      background-color: transparent;
       font-weight: bold;
-      font-size: 24px;
+      position: fixed;
+      padding-right: 5%;
+      box-sizing: border-box;
+      .left {
+        grid-column: 2 / 3;
+      }
+      .mid {
+        grid-column: 5 / 6;
+      }
+      .right {
+        grid-column: 8 / 10;
+      }
+    }
+    .nav2 {
+      .botton {
+        display: inline-block;
+      }
+    }
+  }
+  .shrink {
+    transition: 0.5s;
+    transform: translateY(200px);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .route-enter-from,
+  .route-leave-to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  .route-enter-active,
+  .route-leave-active {
+    transition: all 0.3s ease;
+  }
+  .route-enter-to,
+  .route-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (min-width: 576px) {
+    .nav2 {
+      visibility: hidden;
+    }
+  }
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 576px) {
+    .nav1 {
+      visibility: hidden;
     }
   }
 }
-
 </style>

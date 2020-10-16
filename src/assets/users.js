@@ -1,41 +1,55 @@
-export const users = [
-    {
-      "id": 1,
-      "username": "_YengPingCheng",
-      "firstName": "YenPing",
-      "lastName": "Cheng",
-      "email": "peter2mary@gmail.com",
-      "isAdmin": true,
-      "twoots": [
-        { "id": 1, "content": "Twotter is Amazing!" },
-        { "id": 2, "content": "Don't forget to subscriber to me!" }
-      ]
-    },
-    {
-      "id": 2,
-      "username": "JColeNC",
-      "firstName": "J.",
-      "lastName": "Cole",
-      "email": null,
-      "isAdmin": false,
-      "twoots": []
-    },
-    {
-      "id": 3,
-      "username": "kurtisconner",
-      "firstName": "kurtis",
-      "lastName": "conner",
-      "email": null,
-      "isAdmin": false,
-      "twoots": []
-    },
-    {
-      "id": 4,
-      "username": "boburnham",
-      "firstName": "Bo",
-      "lastName": "Burnham",
-      "email": null,
-      "isAdmin": false,
-      "twoots": []
-    }
+export const users = [{
+    id: 1,
+    username: 'Movie menu interface',
+    content: 'vue2+TweenMax處理選單左右滑動的動態+Ajax存取資料+fontawesome',
+    connect: 'https://codepen.io/pingping0203/pen/KKzEqYJ?editors=0111',
+    cover: 'https://i.kfs.io/playlist/global/65507056v5/fit/500x500.jpg',
+    cover2: '/img/img1.png',
+    isAdmin: true,
+  },
+  {
+    id: 2,
+    username: 'magazine',
+    content: '使用bootstrap4.5.2,rwd應用',
+    connect: 'https://codepen.io/pingping0203/pen/MWyqNoV',
+    cover: 'https://i.pinimg.com/originals/69/e9/09/69e909366de934bca2b964616127208b.jpg',
+    cover2: '/img/img2.png',
+    isAdmin: false,
+  },
+  {
+    id: 3,
+    username: 'Animation',
+    content: 'jQuery+settimeout的應用',
+    connect: 'https://codepen.io/pingping0203/pen/QWNYyVN?editors=0110',
+    cover: 'https://d3d9mb8xdsbq52.cloudfront.net/s3/200916/143758rhc.jpg',
+    cover2: '/img/img3.png',
+    isAdmin: false,
+  },
+  {
+    id: 4,
+    username: 'Ordering interface',
+    content: 'Vue2+keyframes動畫',
+    connect: 'https://codepen.io/pingping0203/pen/PoNxjyL',
+    cover: '/img/img9.png',
+    cover2: '/img/img4.png',
+    isAdmin: false,
+  },
+  {
+    id: 5,
+    username: 'shopping list',
+    content: 'jquery',
+    connect: 'https://codepen.io/pingping0203/pen/YzqjOOp?editors=0010',
+    cover: '/img/img7.png',
+    cover2: '/img/img5.png',
+    isAdmin: false,
+  },
+  {
+    id: 6,
+    username: 'Weather box',
+    content: '大量SVG＋動畫',
+    connect: 'https://codepen.io/pingping0203/pen/qBZKvrQ',
+    cover: 'https://images.dappei.com/uploads/article_image/image/76286/medium_df88347e36d265c4.jpg',
+    cover2: '/img/im6.png',
+    isAdmin: false,
+  },
 ];

@@ -1,5 +1,17 @@
 <template>
-  <div class="user-profile">
+  <div class="item-main-profile">
+    <div class="item-wrapper">
+      <div
+        class="item-pic"
+        v-html="img(state.user.connect, state.user.cover2)"
+      ></div>
+      <div class="item-text">
+        <h1>{{ state.user.username }}</h1>
+        <p>{{ state.user.content }}</p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="user-profile">
     <div class="user-profile__sidebar">
       <div class="user-profile__user-panel">
         <h1 class="user-profile__username">@{{ state.user.username }}</h1>
@@ -10,57 +22,51 @@
           <strong>Followers: </strong> {{ state.followers }}
         </div>
       </div>
-      <CreateTwootPanel @add-twoot="addTwoot"/>
+      <CreateTwootPanel @add-twoot="addTwoot" />
     </div>
     <div class="user-profile__twoots-wrapper">
-      <TwootItem v-for="twoot in state.user.twoots" 
-      :key="twoot.id" 
-      :username="state.user.username" 
-      :twoot="twoot" 
-      @favourite="toggleFavourite"
-    />
-      <!-- <div class="user-profile__twoots" v-for="twoot in user.twoots" :key="twoot.id">
-      </div> -->
+      <TwootItem
+        v-for="twoot in state.user.twoots"
+        :key="twoot.id"
+        :username="state.user.username"
+        :twoot="twoot"
+        @favourite="toggleFavourite"
+      />
     </div>
-  </div>
-
+  </div> -->
 </template>
 
 <script>
-import { computed, reactive } from 'vue';
-import TwootItem from "../components/TwootItem";
-import CreateTwootPanel from "../components/CreateTwootPanel";
-import { useRoute } from 'vue-router';
+import { computed, reactive } from "vue";
+// import TwootItem from '../components/TwootItem';
+// import CreateTwootPanel from '../components/CreateTwootPanel';
+import { useRoute } from "vue-router";
 import { users } from "../assets/users";
 
 export default {
-  name: 'UserProfile',
-  components: { CreateTwootPanel, TwootItem },
+  name: "UserProfile",
+  // components: { CreateTwootPanel, TwootItem },
   setup() {
     const route = useRoute();
-    const userId = computed(()=>route.params.userId)
+    const userId = computed(() => route.params.userId);
 
     const state = reactive({
-      followers: 0,
-      user: users[userId.value - 1] || users[0]
-    })
+      user: users[userId.value - 1] || users[0],
+    });
 
-    const fullName = computed(()=>`${state.user.firstname} ${state.user.lastname}`)
-
-    function addTwoot(twoot) {
-      state.user.twoots.unshift({ id: state.user.twoots.length + 1, content: twoot});
+    function img(url, pic) {
+      return `<a href="${url}" target="_blank" ><img src="${pic}" height="350" width="300" /></a>`;
     }
 
-    return{
+    return {
       state,
-      addTwoot,
-      fullName,
-      userId
-    }
+      userId,
+      img,
+    };
     // function followUser() {
     //   state.followers++
     // }
-  }
+  },
 
   // watch: {
   //   followers(newFollowerCount, oldFollowerCount){
@@ -69,47 +75,38 @@ export default {
   //     }
   //   }
   // },
-
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.user-profile {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  width: 100%;
-  padding: 50px 5%;
-  box-sizing: border-box;
-  gap: 5em;
-  .user-profile__sidebar {
-    .user-profile__user-panel {
-        display: flex;
-        flex-direction: column;
-        // margin-right: 50px;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 5px ;
-        border: solid 1px #DFE3E8;
-        margin-bottom: 0;
-        h1 {
-          margin: 0;
-        }
-        .user-profile__admin-badge {
-          background-color: rebeccapurple;
-          color:#fff;
-          border-radius: 5px;
-          margin-right: auto;
-          padding: 0px 10px;
-          font-weight: bold;
-        }
-        
-      }
-  }
+.item-main-profile {
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  .item-wrapper {
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
-  .user-profile__twoots-wrapper {
-    display: grid;
-    gap: 10px;
-    margin-bottom: auto;
-  }  
+    .item-pic {
+      flex: 50%;
+      text-align: center;
+    }
+    .item-text {
+      align-self: center;
+      flex: 50%;
+      text-align: center;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .item-wrapper {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }
 </style>
