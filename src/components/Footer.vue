@@ -33,10 +33,12 @@ export default {};
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 .footer-section {
   background-color: #fff;
-  min-height: 200px;
+  min-height: 300px;
   width: 100%;
-  padding-top: 5%;
+  display: flex;
+  justify-content: center;
   .social-media-container {
+    align-self: center;
     text-align: center;
     .brand {
       width: 100%;
@@ -46,7 +48,8 @@ export default {};
     }
     .icon-container {
       img {
-        margin-right: 30px;
+        margin-right: 15px;
+        margin-left: 15px;
       }
     }
   }

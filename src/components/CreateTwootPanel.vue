@@ -63,19 +63,6 @@ export default {
       createNewTwoot,
     };
   },
-  // computed: {
-  //   newTwootCharacterCount() {
-  //     return this.newTwootContent.length;
-  //   }
-  // },
-  // methods: {
-  //   createNewTwoot() {
-  //     if (this.newTwootContent && this.selectedTwootType !== 'draft') {
-  //       this.$emit('add-twoot', this.newTwootContent)
-  //       this.newTwootContent='';
-  //     }
-  //   }
-  // }
 };
 </script>
 
