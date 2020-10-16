@@ -11,29 +11,6 @@
       </div>
     </div>
   </div>
-  <!-- <div class="user-profile">
-    <div class="user-profile__sidebar">
-      <div class="user-profile__user-panel">
-        <h1 class="user-profile__username">@{{ state.user.username }}</h1>
-        <div class="user-profile__admin-badge" v-if="state.user.isAdmin">
-          Admin
-        </div>
-        <div class="user-profile__follower-count">
-          <strong>Followers: </strong> {{ state.followers }}
-        </div>
-      </div>
-      <CreateTwootPanel @add-twoot="addTwoot" />
-    </div>
-    <div class="user-profile__twoots-wrapper">
-      <TwootItem
-        v-for="twoot in state.user.twoots"
-        :key="twoot.id"
-        :username="state.user.username"
-        :twoot="twoot"
-        @favourite="toggleFavourite"
-      />
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -104,9 +81,13 @@ export default {
   }
 }
 @media (max-width: 576px) {
-  .item-wrapper {
-    flex-direction: column;
-    flex-wrap: nowrap;
+  .item-main-profile {
+    justify-content: center;
+    .item-wrapper {
+      transform: scale(0.7);
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
   }
 }
 </style>

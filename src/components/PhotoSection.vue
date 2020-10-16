@@ -18,14 +18,14 @@
 </template>
 
 <script>
-import { users } from '../assets/users';
+import { users } from "../assets/users";
 export default {
   setup() {
     function bgcss(url) {
       return {
-        'background-image': 'url(' + url + ')',
-        'background-position': 'center center',
-        'background-size': 'cover',
+        "background-image": "url(" + url + ")",
+        "background-position": "center center",
+        "background-size": "cover",
       };
     }
     return {
@@ -36,7 +36,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 .photo-section {
   padding-top: 80px;
   display: flex;
@@ -67,7 +67,7 @@ export default {
         }
         h1 {
           text-transform: uppercase;
-          font-family: 'Monoton', cursive;
+          font-family: "Monoton", cursive;
           justify-content: center;
           transform: translateX(-25%);
         }
@@ -75,7 +75,15 @@ export default {
     }
   }
 }
-.movearea {
-  transition: 0.2s background-color ease;
+@media (max-width: 576px) {
+  .photo {
+    transform: scale(0.8);
+    .photo-text {
+      transform: scale(0.8);
+      &:hover {
+        transform: scale(1, 1.1);
+      }
+    }
+  }
 }
 </style>

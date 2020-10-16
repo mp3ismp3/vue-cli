@@ -2,7 +2,7 @@
   <div class="header-section">
     <div class="container">
       <div class="header-inner">
-        <h1>PINGjPING</h1>
+        <div class="brand">PINGPING</div>
         <p>PROTOFOLILS</p>
       </div>
     </div>
@@ -35,7 +35,7 @@ export default {
 <style lang="scss" scoped>
 .header-section {
   background-color: #f3f5fa;
-  padding-top: 200px;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +52,7 @@ export default {
       min-height: 400px;
       margin-right: 60px;
       margin-left: 60px;
-      h1 {
+      .brand {
         margin-top: 0px;
         margin-bottom: 20px;
         font-family: solano-gothic-pro-mvb, sans-serif;
@@ -67,6 +67,11 @@ export default {
         justify-content: center;
       }
     }
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    transform: scale(0.8);
   }
 }
 </style>

@@ -20,6 +20,7 @@
         </div>
       </nav>
       <router-view></router-view>
+      <Footer />
     </div>
     <!-- <transition name="route" mode="out-in">
         <component :is="slotProps.Component"></component>
@@ -29,11 +30,12 @@
 
 <script>
 import PhoneNav from "./components/PhoneNav";
+import Footer from "./components/Footer";
 // import { useStore } from "vuex";
 import { reactive, ref, watch, computed } from "vue";
 import { useRoute } from "vue-router";
 export default {
-  components: { PhoneNav },
+  components: { PhoneNav, Footer },
   name: "App",
   setup() {
     const route = useRoute();
@@ -79,6 +81,7 @@ export default {
     top: 0px;
     left: 0px;
     background-color: #f3f5fa;
+    overflow: hidden;
     .nav1 {
       width: 100%;
       justify-content: center;
@@ -112,6 +115,7 @@ export default {
     transform: translateY(200px);
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 -15px 10px rgba(black, 0.2);
   }
   .route-enter-from,
   .route-leave-to {

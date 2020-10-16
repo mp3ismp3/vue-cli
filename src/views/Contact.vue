@@ -4,8 +4,8 @@
       <div class="contact-text">
         <h1>GET IN TOUCH</h1>
         <p>
-          Enter your message in the form to send a message, or follow Vince on
-          social:
+          Enter your message in the form to send a message, or follow PingPing
+          on social:
         </p>
       </div>
       <div class="contact-form">

@@ -7,11 +7,11 @@
       <div class="about-text">
         <h2>CHENG YEN PING</h2>
         <p>
-          Having immersed himself in the footwear industry, he now captures
-          imagery for fashion labels and footwear companies throughout various
-          settings. Having clients like Adidas, Finish Line, and Reebok, Vince
-          feels this is only the beginning of a long journey. Feel free to reach
-          out and contact him with any questions or inquires.
+          It’s a pleasure to meet you. My name is Yen Ping Cheng.I graduated
+          from TTU University with a Bachelor's degree in Electrical
+          Engineering,but I have great passion to work in the Front End
+          Design.In the near future, I hope I could be professional and strong
+          ,hopeing join you ,l'll make all-out effort .
         </p>
       </div>
     </div>
@@ -55,10 +55,9 @@ export default {};
     }
   }
 }
-
-// @media (max-width: 576px) {
-//   .container {
-//     flex-direction: column;
-//   }
-// }
+@media (max-width: 576px) {
+  .about-section {
+    margin-top: 20%;
+  }
+}
 </style>
