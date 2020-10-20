@@ -4,7 +4,7 @@ import {
 } from 'vue-router';
 import Home from '../views/Home.vue';
 import UserProfile from '../views/UserProfile.vue';
-import Admin from '../views/Admin.vue';
+
 import About from '../views/About.vue';
 import Contact from '../views/Contact.vue';
 const routes = [{
@@ -18,23 +18,15 @@ const routes = [{
     component: About
   },
   {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
+  },
+  {
     path: '/user/:userId',
     name: 'UserProfile',
     component: UserProfile
   },
-  {
-    path: '/admin',
-    name: 'Admin',
-    component: Admin,
-    meta: {
-      requiresAdmin: true
-    }
-  },
-  {
-    path: '/contact',
-    name: 'Contact',
-    component: Contact
-  }
 ]
 
 

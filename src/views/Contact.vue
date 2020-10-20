@@ -17,12 +17,13 @@
 </template>
 
 <script>
-import TwootItem from "../components/TwootItem";
-import CreateTwootPanel from "../components/CreateTwootPanel";
-import { message } from "../assets/message";
-import { reactive } from "vue";
+import TwootItem from '../components/TwootItem';
+import CreateTwootPanel from '../components/CreateTwootPanel';
+import { message } from '../assets/message';
+import { reactive } from 'vue';
 export default {
   components: { TwootItem, CreateTwootPanel },
+  name: 'Contact',
   setup() {
     const state = reactive({
       msg: message,
@@ -41,7 +42,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .contact-section {
   min-height: 700px;
   display: flex;

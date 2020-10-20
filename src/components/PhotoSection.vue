@@ -18,16 +18,24 @@
 </template>
 
 <script>
-import { users } from "../assets/users";
+import { users } from '../assets/users';
+// import { onMounted } from 'vue';
 export default {
+  // props: {
+  //   scrollTop: {
+  //     type: Number,
+  //     required: true,
+  //   },
+  // },
   setup() {
     function bgcss(url) {
       return {
-        "background-image": "url(" + url + ")",
-        "background-position": "center center",
-        "background-size": "cover",
+        'background-image': 'url(' + url + ')',
+        'background-position': 'center center',
+        'background-size': 'cover',
       };
     }
+
     return {
       bgcss,
       users,
@@ -36,7 +44,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 .photo-section {
   padding-top: 80px;
   display: flex;
@@ -67,7 +75,7 @@ export default {
         }
         h1 {
           text-transform: uppercase;
-          font-family: "Monoton", cursive;
+          font-family: 'Monoton', cursive;
           justify-content: center;
           transform: translateX(-25%);
         }

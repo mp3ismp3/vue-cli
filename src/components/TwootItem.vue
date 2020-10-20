@@ -3,7 +3,7 @@
     <div class="user-profile__twoot">
       <div class="twoot-item__user"><p>MSG</p></div>
       <div class="twoot-item__content">
-        {{ twoot.content }}
+        <p>{{ twoot.content }}</p>
       </div>
     </div>
   </div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "TwootItem",
+  name: 'TwootItem',
   props: {
     twoot: {
       type: Object,
@@ -30,6 +30,9 @@ export default {
   box-sizing: border-box;
   cursor: pointer;
   transition: all 0.25s ease;
+  .twoot-item__content {
+    text-align: justify;
+  }
 
   &:hover {
     transform: scale(1.1, 1.1);

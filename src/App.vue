@@ -19,24 +19,25 @@
           <img src="/img/arrow.svg" width="50" height="50" />
         </div>
       </nav>
-      <router-view></router-view>
+      <router-view v-slot="slotProps">
+        <transition name="route" mode="out-in">
+          <component :is="slotProps.Component"></component>
+        </transition>
+      </router-view>
       <Footer />
     </div>
-    <!-- <transition name="route" mode="out-in">
-        <component :is="slotProps.Component"></component>
-      </transition> -->
   </div>
 </template>
 
 <script>
-import PhoneNav from "./components/PhoneNav";
-import Footer from "./components/Footer";
+import PhoneNav from './components/PhoneNav';
+import Footer from './components/Footer';
 // import { useStore } from "vuex";
-import { reactive, ref, watch, computed } from "vue";
-import { useRoute } from "vue-router";
+import { reactive, ref, watch, computed } from 'vue';
+import { useRoute } from 'vue-router';
 export default {
   components: { PhoneNav, Footer },
-  name: "App",
+  name: 'App',
   setup() {
     const route = useRoute();
     const path = computed(() => route.fullPath);
@@ -44,7 +45,7 @@ export default {
     // const user = computed(() => store.state.User.user);
     const showNav = ref(false);
     const state = reactive({ path });
-    console.log(path);
+
     // window.route = useRoute();
     // window.router = useRouter();
 
@@ -74,7 +75,6 @@ export default {
   .phone_nav {
     position: relative;
     min-height: 100vh;
-    // z-index: 1000;
   }
   .nav {
     position: absolute;
@@ -94,6 +94,7 @@ export default {
       position: fixed;
       padding-right: 5%;
       box-sizing: border-box;
+      z-index: 100;
       .left {
         grid-column: 2 / 3;
       }
@@ -105,6 +106,8 @@ export default {
       }
     }
     .nav2 {
+      z-index: 100;
+
       .botton {
         display: inline-block;
       }
