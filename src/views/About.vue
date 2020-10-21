@@ -1,8 +1,26 @@
 <template>
-  <div class="about-section">
+  <div class="about-section" @wheel.prevent="trf">
     <div class="container">
       <div class="about-pic">
-        <img src="/img/me.png" />
+        <img
+          class="trans-0"
+          src="/img/me.png"
+          @wheel.prevent="trf"
+          :style="flyScroll"
+        />
+        <img
+          class="trans-1"
+          src="/ping/img1.jpg"
+          @wheel.prevent="trf"
+          :style="flyScroll1"
+        />
+        <img
+          class="trans-2"
+          src="/ping/img2.jpg"
+          @wheel.prevent="trf"
+          :style="flyScroll2"
+        />
+        <img class="trans-3" src="/ping/img3.jpg" @wheel.prevent="trf" />
       </div>
       <div class="about-text">
         <h2>CHENG YEN PING</h2>
@@ -19,7 +37,66 @@
 </template>
 
 <script>
-export default {};
+import { reactive, computed } from 'vue';
+export default {
+  setup() {
+    let state = reactive({
+      scrollY: 1,
+      isActive: false,
+    });
+    const flyScroll = computed(() => {
+      console.log(state.scrollY);
+      return {
+        transform: `translate3d(0px, ${-state.scrollY}px, 0px)`,
+      };
+    });
+    const flyScroll1 = computed(() => {
+      if (state.scrollY > 625) {
+        let y = state.scrollY - 625;
+        return {
+          transform: `translate3d(0px, ${-y}px, 0px)`,
+        };
+      }
+    });
+    const flyScroll2 = computed(() => {
+      if (state.scrollY > 1250) {
+        let y = state.scrollY - 1250;
+        return {
+          transform: `translate3d(0px, ${-y}px, 0px)`,
+        };
+      }
+    });
+    // const flyScroll3 = computed(() => {
+    //   if (state.scrollY > 1875) {
+    //     let y = state.scrollY - 1875;
+    //     return {
+    //       transform: `translate3d(0px, ${-y}px, 0px)`,
+    //     };
+    //   }
+    // });
+
+    function trf(evt) {
+      // console.log(evt);
+      if (state.scrollY + evt.deltaY > 0) {
+        state.scrollY += evt.deltaY;
+      } else {
+        state.scrollY = 0;
+      }
+    }
+    function order() {
+      // if (state.scrollY> 625)
+    }
+    return {
+      trf,
+      flyScroll,
+      flyScroll1,
+      flyScroll2,
+
+      order,
+      state,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -29,6 +106,7 @@ export default {};
   align-items: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   .container {
     display: flex;
     margin-left: 10%;
@@ -41,10 +119,30 @@ export default {};
       justify-content: center;
 
       min-width: 10%;
+      position: relative;
+      img.trans-0 {
+        z-index: 5;
+      }
+      img.trans-1 {
+        z-index: 4;
+        margin-left: 10px;
+        margin-top: -10px;
+      }
+      img.trans-2 {
+        z-index: 3;
+        margin-left: -10px;
+        margin-top: 10px;
+      }
+      img.trans-3 {
+        z-index: 2;
+      }
+
       img {
+        position: absolute;
+        left: 0;
         height: 400px;
         width: 300px;
-        align-self: center;
+        transition: ease-in;
       }
     }
     .about-text {

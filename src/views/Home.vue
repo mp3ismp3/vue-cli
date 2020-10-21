@@ -1,19 +1,21 @@
 <template>
-  <div class="header-section">
-    <div class="float-section">
-      <FloatSection />
-      <div class="wrapper">
-        <div class="container">
-          <div class="header-inner">
-            <div class="brand">PINGPING</div>
-            <p>PROTOFOLILS</p>
+  <div>
+    <div class="header-section">
+      <div class="float-section">
+        <FloatSection />
+        <div class="wrapper">
+          <div class="container">
+            <div class="header-inner">
+              <div class="brand">PINGPING</div>
+              <p>PROTOFOLILS</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="photo-overlay" :class="{ nonOverlay: state.scrollTop > 56 }">
+    <!-- <div class="photo-overlay" :class="{ nonOverlay: state.scrollTop > 56 }"> -->
     <PhotoSection />
+    <!-- </div> -->
   </div>
 </template>
 
@@ -28,7 +30,23 @@ export default {
   setup() {
     let state = reactive({
       scrollTop: 0,
+      isActive: true,
     });
+    // @wheel.event 用transition 變換Ｙ軸
+    // const flyScroll = computed(() => {
+    //   return {
+    //     transform: `translate3d(0px, ${-state.scrollY}px, 0px)`,
+    //   };
+    // });
+
+    // function trf(evt) {
+    //   console.log(evt);
+    //   if (state.scrollY + evt.deltaY > 0) {
+    //     state.scrollY += evt.deltaY * 0.9;
+    //   } else {
+    //     state.scrollY = 0;
+    //   }
+    // }
     function bgcss(url) {
       return {
         'background-image': 'url(' + url + ')',
@@ -36,7 +54,6 @@ export default {
         'background-size': 'cover',
       };
     }
-
     onMounted(() => {
       window.addEventListener(
         'scroll',
@@ -45,7 +62,7 @@ export default {
             document.documentElement.scrollTop ||
             document.body.scrollTop ||
             document.querySelector('.element').scrollTop;
-          console.log(state.scrollTop);
+          // console.log(state.scrollTop);
         },
         true
       );
@@ -64,7 +81,7 @@ export default {
   position: relative;
   .wrapper {
     background-color: #f3f5fa;
-    min-height: 600px;
+    min-height: 700px;
     width: 100vw;
     height: 100vh;
     display: flex;

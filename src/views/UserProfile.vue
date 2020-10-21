@@ -3,10 +3,10 @@
     <div class="item-wrapper">
       <div
         class="item-pic"
-        v-html="img(state.user.connect, state.user.cover2)"
+        v-html="img(state.user.connect, state.user.cover)"
       ></div>
       <div class="item-text">
-        <h1>{{ state.user.username }}</h1>
+        <h1>{{ state.user.itemName }}</h1>
         <p>{{ state.user.content }}</p>
       </div>
     </div>
@@ -14,15 +14,13 @@
 </template>
 
 <script>
-import { computed, reactive } from "vue";
-// import TwootItem from '../components/TwootItem';
-// import CreateTwootPanel from '../components/CreateTwootPanel';
-import { useRoute } from "vue-router";
-import { users } from "../assets/users";
+import { computed, reactive } from 'vue';
+import { useRoute } from 'vue-router';
+import { users } from '../assets/users';
 
 export default {
-  name: "UserProfile",
-  // components: { CreateTwootPanel, TwootItem },
+  name: 'UserProfile',
+
   setup() {
     const route = useRoute();
     const userId = computed(() => route.params.userId);
@@ -40,18 +38,7 @@ export default {
       userId,
       img,
     };
-    // function followUser() {
-    //   state.followers++
-    // }
   },
-
-  // watch: {
-  //   followers(newFollowerCount, oldFollowerCount){
-  //     if (oldFollowerCount<newFollowerCount){
-  //       console.log(`${this.user.username} has gaind a follower!`)
-  //     }
-  //   }
-  // },
 };
 </script>
 

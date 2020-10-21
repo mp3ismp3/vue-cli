@@ -74,7 +74,6 @@ export default {
   background-color: #f3f5fa;
   .phone_nav {
     position: relative;
-    min-height: 100vh;
   }
   .nav {
     position: absolute;
@@ -82,6 +81,7 @@ export default {
     left: 0px;
     background-color: #f3f5fa;
     overflow: hidden;
+
     .nav1 {
       width: 100%;
       justify-content: center;
