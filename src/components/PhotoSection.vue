@@ -59,20 +59,7 @@ export default {
         'background-size': 'cover',
       };
     }
-    // function scroll() {
-    //   console.log(state.scrollTop);
-    //   if (state.scrollTop < 1560) {
-    //     state.color = '#A5ADA9';
-    //   } else if (state.scrollTop < 2300) {
-    //     state.color = '#A99883';
-    //   } else if (state.scrollTop < 3050) {
-    //     state.color = '#A2A3FF';
-    //   } else if (state.scrollTop < 3800) {
-    //     state.color = '#71F9FF';
-    //   } else if (state.scrollTop < 4555) {
-    //     state.color = '#FFBC71';
-    //   }
-    // }
+
     onMounted(() => {
       window.addEventListener(
         'scroll',
@@ -111,27 +98,21 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: center;
-      // justify-content: center;
+
       .trans-1 {
         color: #3e3d28;
-        // transform: translateX(-50vh);
       }
       .trans-2 {
         color: #726ead;
-        // margin-left: ;
       }
       .trans-3 {
         color: #b52795;
-        // margin-left: ;
       }
       .trans-4 {
-        // margin-left: ;
       }
       .trans-5 {
-        // margin-left: ;
       }
       .trans-6 {
-        // margin-left: ;
         color: #0274d9;
       }
       .photo-text {

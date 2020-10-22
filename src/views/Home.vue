@@ -13,9 +13,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="photo-overlay" :class="{ nonOverlay: state.scrollTop > 56 }"> -->
     <PhotoSection />
-    <!-- </div> -->
   </div>
 </template>
 
@@ -32,21 +30,7 @@ export default {
       scrollTop: 0,
       isActive: true,
     });
-    // @wheel.event 用transition 變換Ｙ軸
-    // const flyScroll = computed(() => {
-    //   return {
-    //     transform: `translate3d(0px, ${-state.scrollY}px, 0px)`,
-    //   };
-    // });
 
-    // function trf(evt) {
-    //   console.log(evt);
-    //   if (state.scrollY + evt.deltaY > 0) {
-    //     state.scrollY += evt.deltaY * 0.9;
-    //   } else {
-    //     state.scrollY = 0;
-    //   }
-    // }
     function bgcss(url) {
       return {
         'background-image': 'url(' + url + ')',
@@ -62,7 +46,6 @@ export default {
             document.documentElement.scrollTop ||
             document.body.scrollTop ||
             document.querySelector('.element').scrollTop;
-          // console.log(state.scrollTop);
         },
         true
       );

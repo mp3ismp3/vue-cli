@@ -23,24 +23,7 @@ export default {
     const state = reactive({
       scrollTop: 0,
     });
-    // const downScroll = computed(() => {
-    //   return {
-    //     transform: `translate3d(0px, ${state.scrollY}px, 0px)`,
-    //   };
-    // });
-    // const flyScroll = computed(() => {
-    //   return {
-    //     transform: `translate3d(0px, ${-state.scrollY}px, 0px)`,
-    //   };
-    // });
-    // function trf(evt) {
-    //   console.log(evt);
-    //   if (state.scrollY + evt.deltaY > 0) {
-    //     state.scrollY += evt.deltaY;
-    //   } else {
-    //     state.scrollY = 0;
-    //   }
-    // }
+
     const imgList = [
       {
         name: 'photo-1',
