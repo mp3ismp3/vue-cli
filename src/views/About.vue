@@ -2,25 +2,28 @@
   <div class="about-section" @wheel.prevent="trf">
     <div class="container">
       <div class="about-pic">
+        <div class="phone-photo">
+          <img class="photo" src="/img/me.png" />
+        </div>
         <img
-          class="trans-0"
+          class="trans-0 dn"
           src="/img/me.png"
           @wheel.prevent="trf"
           :style="flyScroll"
         />
         <img
-          class="trans-1"
+          class="trans-1 dn"
           src="/ping/img1.jpg"
           @wheel.prevent="trf"
           :style="flyScroll1"
         />
         <img
-          class="trans-2"
+          class="trans-2 dn"
           src="/ping/img2.jpg"
           @wheel.prevent="trf"
           :style="flyScroll2"
         />
-        <img class="trans-3" src="/ping/img3.jpg" @wheel.prevent="trf" />
+        <img class="trans-3 dn" src="/ping/img3.jpg" @wheel.prevent="trf" />
       </div>
       <div class="about-text">
         <h2>CHENG YEN PING</h2>
@@ -159,10 +162,16 @@ export default {
 }
 @media (max-width: 576px) {
   .about-section {
-    margin-top: 20%;
     justify-content: center;
-    .about-text {
-      margin-top: 10%;
+    .about-pic {
+      position: static;
+      .phone-photo {
+        height: 400px;
+        width: 300px;
+      }
+      .dn {
+        display: none;
+      }
     }
   }
 }

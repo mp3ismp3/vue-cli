@@ -2,7 +2,7 @@
   <div id="app">
     <PhoneNav class="phone_nav" />
     <div class="nav" :class="{ shrink: showNav }">
-      <nav class="nav1">
+      <nav class="nav1" @wheel.prevent="event">
         <div class="left">
           <router-link to="/">SHOP</router-link>
         </div>
@@ -19,7 +19,7 @@
           <img src="/img/arrow.svg" width="50" height="50" />
         </div>
       </nav>
-      <router-view v-slot="slotProps">
+      <router-view v-slot="slotProps" :key="key">
         <transition name="route" mode="out-in">
           <component :is="slotProps.Component"></component>
         </transition>
@@ -41,10 +41,11 @@ export default {
   setup() {
     const route = useRoute();
     const path = computed(() => route.fullPath);
+
     // const store = useStore();
     // const user = computed(() => store.state.User.user);
     const showNav = ref(false);
-    const state = reactive({ path });
+    const state = reactive({ path, route });
 
     // window.route = useRoute();
     // window.router = useRouter();
@@ -52,8 +53,10 @@ export default {
     watch(
       () => state.path,
       () => {
-        console.log(state.path);
+        console.log(route.name);
         showNav.value = false;
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
       }
     );
 

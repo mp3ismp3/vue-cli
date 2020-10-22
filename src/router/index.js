@@ -7,6 +7,7 @@ import UserProfile from '../views/UserProfile.vue';
 
 import About from '../views/About.vue';
 import Contact from '../views/Contact.vue';
+
 const routes = [{
     path: '/',
     name: 'Home',
